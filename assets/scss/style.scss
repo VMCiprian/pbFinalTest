@@ -1,0 +1,558 @@
+/*------------------------------------------------------------------
+    Main Style Stylesheet
+    Project:        HTML5 Job PurpleBricks
+    Version:        1.0
+    Author:         Ciprian
+    Last change:    13/03/2017
+-------------------------------------------------------------------*/
+
+@charset "utf-8";
+
+// import variables, mixins, etc
+@import "variables";
+@import "mixins";
+@import "font-awesome.scss";
+@import "debug.scss";
+
+@include no-padding("left");
+@include no-padding("right");
+@include no-padding("top");
+@include no-padding("bottom");
+@include no-padding("all");
+
+
+* {
+  margin: 0px;
+  padding: 0px;
+}
+
+body{
+  background: $white;
+  color: $defaultText;
+}
+
+a {
+  outline: none;
+  cursor: default;
+}
+
+
+.container{
+  @media (min-width:992px){
+    width:960px;
+  }
+}
+
+.generic-section-tile{
+  padding: 5px 0 ;
+  margin: 10px 0 20px 0;
+  font-family: $customFontFamily;
+  font-weight: $fontWeightBold;
+  font-size:27px;
+  border-bottom: 1px solid $titleBorderBtm;
+}
+
+.purple{color: $defaultTextPurple;;}
+.red{color: $defaultBgRed;}
+.green{color:$defaultGreen;}
+
+.btn {
+  color:$white;
+  text-decoration:none;
+  padding:3px 10px;
+  @include border-radius(5px);
+  font-size:20px;
+  font-weight: bold;
+}
+
+.btn-blue {
+  @include button-bg($defaultBlueBtn);
+}
+
+.vertical-separator-5{
+  clear: both;
+  width: 100%;
+  height: 5px;
+}
+.vertical-separator-10{
+ clear: both;
+ width: 100%;
+ height: 10px;
+}
+
+.vertical-separator-15{
+  clear: both;
+  width: 100%;
+  height: 15px;
+}
+
+.no-margin{
+  margin: 0;
+}
+
+header{
+  width:100%;
+  padding: 20px 0 6px 0;
+  background: $headerBg;
+  -webkit-box-shadow: 0px 3px 5px 3px rgba(213,213,213,1);
+  -moz-box-shadow: 0px 3px 5px 3px rgba(213,213,213,1);
+  box-shadow: 0px 3px 5px 3px rgba(213,213,213,1);
+
+  .logo .brand-logo{
+     width: 170px;
+     height: 64px;
+     background-image:url($imageURL + "brand-logo.jpg");
+     background-repeat: no-repeat;
+     background-size: 170px 64px;
+     background-position: top center;
+     cursor: pointer;
+
+    @include respond-to(small) {
+      text-align: center;
+      margin:auto;
+    }
+  }
+
+  .slogan h3{
+    color: $defaultTextPurple;
+    text-align: right;
+    font-family: $customFontFamily;
+    font-weight: $fontWeightBold;
+    font-size:27px;
+    margin-top:40px;
+
+
+    @include respond-to(small) {
+      text-align: center;
+      margin:5px auto;
+    }
+  }
+
+}
+
+.status-details{
+  width: 100%;
+  margin-top:40px;
+
+  .status-content{
+    padding:6px 0 6px 40px;
+    color:$white;
+    background: $defaultBgRed;
+
+    h4{
+      margin:0;
+      padding: 0;
+      font-family: $customFontFamily;
+      font-weight: $fontWeightBold;
+      font-size:22px;
+    }
+
+    span{
+      font-weight: $fontWeightNormal;
+      font-size:20px;
+    }
+  }
+}
+
+.property-details{
+  width: 100%;
+  margin-top:15px;
+
+  @include respond-to(medium) {
+    .no-padding-left{
+      padding-right:0 !important;
+    }
+    .no-padding-right{
+      padding-left:0 !important;
+    }
+  }
+
+  .property-content{
+    border:1px solid $defaulPurpleBorder;
+    padding:0 40px 30px 40px;
+
+    .property-image img{
+      width: 100%;
+      @include border-radius(3px);
+    }
+
+    .property-address{
+      color: $defaultTextPurple;
+      font-family: $customFontFamily;
+      font-weight: $fontWeightBold;
+      font-size:19px;
+    }
+
+    .property-price{
+      font-family: Tahoma;
+      font-size: 16px;
+    }
+
+    .property-price-value{
+      padding:4px 0;
+      color: $defaultTextPurple;
+      font-family: $customFontFamily;
+      font-weight: $fontWeightBold;
+      font-size:32px;
+    }
+
+    .property-extras{
+      padding: 5px;
+      cursor: pointer;
+      text-transform: uppercase;
+      color: $white;
+      background: $btnGrayBg;
+      @include border-radius(5px);
+      font-size:17px;
+
+      @include respond-to(medium) {
+        font-size:14px;
+        margin: auto;
+        display: inline-block;
+        text-align: center;
+      }
+    }
+    .property-extras:hover{
+      background: $defaultText;
+      transition: all 0.3s ease;
+    }
+  }
+}
+
+.sprite{
+  background: url(../images/sprite.png) no-repeat;
+}
+
+.buyer-details{
+  width: 100%;
+  margin-top:30px;
+
+  .position{
+    width:70px;
+    position: absolute;
+    margin: 20px 30px 0 0;
+    right:0;
+    color: $defaultTextPurple;
+    cursor: pointer;
+  }
+  .show{
+    //content: " \21D3";
+    height: 9px;
+    background-position: 45px -9px;
+  }
+  .hide{
+    //content: " \21D1";
+    height: 9px;
+    background-position: 45px 0;
+  }
+
+  .show-when-collpased{
+    display: none;
+    color: $defaultTextPurple;
+    font-size: 18px;
+  }
+
+  .buyer-content {
+    border: 1px solid $titleBorderBtm;
+    padding: 0 40px 30px 40px;
+
+    .buyer-atribute{
+      float:left;
+      width: 21%;
+      color: $defaultTextPurple;
+      font-size: 17px;
+
+      @include respond-to(small) {
+        width: 100%;
+      }
+    }
+
+    .buyer-atribute-details{
+      float:right;
+      width: 78%;
+      font-size: 17px;
+
+      @include respond-to(small) {
+        width: 100%;
+      }
+    }
+  }
+}
+
+.offer-details{
+  width: 100%;
+  margin-top:30px;
+
+  @include respond-to(medium) {
+    .no-padding-left{
+      padding-right:0 !important;
+    }
+    .no-padding-right{
+      padding-left:0 !important;
+    }
+  }
+
+  .col-separator{
+    width: 100%;
+    clear: both;
+    height: 30px;
+  }
+
+  .offer-details-left {
+    border: 1px solid $titleBorderBtm;
+    padding: 0 40px 30px 40px;
+
+    .offer-last-price{
+      color: $black;
+      font-size: 30px;
+    }
+
+    .offer-disclamer{
+      font-size:12px;
+    }
+  }
+
+  .offer-details-right {
+    border: 2px solid $defaultBgRed;
+    padding: 0 40px 25px 40px;
+    background: $bgBoxResponse;
+
+    .generic-text{
+      font-weight: bold;
+      font-size: 22px;
+    }
+  }
+
+  .offer-comments{
+    padding: 5px;
+    cursor: pointer;
+    text-transform: uppercase;
+    color: $white;
+    background: $btnGrayBg;
+    @include border-radius(5px);
+    font-size:16px;
+
+    @include respond-to(medium) {
+      font-size:14px;
+      margin: auto;
+      display: inline-block;
+      text-align: center;
+    }
+  }
+  .offer-comments:hover{
+    background: $defaultText;
+    transition: all 0.3s ease;
+  }
+
+  .last-comment{
+    display: inline-block;
+    color: $defaultTextPurple;
+    font-size: 12px;
+  }
+}
+
+
+.negociation-details{
+  width: 100%;
+  margin-top:30px;
+
+  @include respond-to(medium) {
+    .no-padding-left{
+      padding-right:0 !important;
+    }
+    .no-padding-right{
+      padding-left:0 !important;
+    }
+  }
+
+  .negociation-content {
+    border: 1px solid $defaulPurpleBorder;
+    padding: 0 40px 30px 40px;
+
+    .negociation-info{
+      padding: 20px 10px 10px 10px;
+      border:1px solid $titleBorderBtm;
+      color: $defaultTextPurple;
+      font-size: 17px;
+      font-weight: bold;
+    }
+
+    .negociation-info-btn{
+      width: 80%;
+      margin:10px 0 0 20%;
+      padding: 5px;
+      cursor: pointer;
+      text-transform: uppercase;
+      color: $white;
+      background: $defaulPurpleBorder;
+      @include border-radius(5px);
+      font-size:16px;
+
+      @include respond-to(small) {
+        text-align: center;
+        margin: auto;
+        width: 100%;
+      }
+    }
+
+    .negociation-info-btn:hover{
+      background: $defaultTextPurple;
+      transition: all 0.3s ease;
+    }
+
+    .offer-title{
+      color: $defaultTextPurple;
+      font-size: 20px;
+      font-weight: bold;
+      padding: 30px 0 0 26px;
+    }
+
+    .form-placeholder{
+
+      .pound-sign{
+        float: left;
+        font-size:44px;
+        color: $titleBorderBtm;
+        margin: -12px 3px 0 0;
+      }
+
+      input{
+        width:200px;
+        padding: 3px;
+        border: 1px solid $titleBorderBtm;
+        @include border-radius(4px);
+        background: $white;
+        color: $black;
+        font-size: 20px;
+        font-weight: bold;
+      }
+
+      .offer-comments{
+        width: 30%;
+        margin: 20px 0 0 26px;
+        text-align: center;
+        padding: 5px;
+        cursor: pointer;
+        text-transform: uppercase;
+        color: $white;
+        background: $defaulPurpleBorder;
+        @include border-radius(5px);
+        font-size:16px;
+        font-weight: bold;
+
+        @include respond-to(medium) {
+          display: none;
+        }
+      }
+
+      .offer-comments:hover{
+        background: $defaultTextPurple;
+        transition: all 0.3s ease;
+      }
+
+      .form-submit{
+
+        @include respond-to(small) {
+          margin:5px auto;
+          width: 100%;
+          text-align: center;
+        }
+      }
+    }
+  }
+}
+
+footer{
+  width: 100%;
+  margin-top:130px;
+  padding-top: 10px;
+  background: $defaultFooterBg;
+
+  ul.footer-links{
+    @include respond-to(medium) {
+      text-align: center;
+      margin:auto;
+    }
+  }
+
+  ul.footer-links li{
+    padding:0 5px;
+    display: inline-block ;
+    text-transform: uppercase;
+    color: $white;
+  }
+
+  ul.footer-links li + li:before {
+    content: " | \00a0 \00a0";
+  }
+
+  a, a:hover{
+    cursor: pointer;
+    color: $white;
+  }
+
+  .social-links{
+    @include respond-to(medium) {
+      text-align: center;
+      margin: auto;
+    }
+    @include respond-to(small) {
+      text-align: center;
+      margin: 10px auto;
+    }
+  }
+
+  .social-links a{
+    color: $socialBtns;
+    font-size: 22px;
+    padding: 0 4px;
+  }
+  .social-links a:hover{
+    color: $white;
+    text-decoration: none;
+  }
+}
+
+
+/* general loader and overlay */
+
+#overlay{
+  position:fixed;
+  top:0;
+  left:0;
+  right:0;
+  bottom:0;
+  background-color:rgba(0, 0, 0, 0.5);
+  transition: background 0.5s, margin-left 0.5s;
+  background: url(data:;base64,iVBORw0KGgoAAAANSUhEUgAAAAIAAAACCAYAAABytg0kAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAgY0hSTQAAeiYAAICEAAD6AAAAgOgAAHUwAADqYAAAOpgAABdwnLpRPAAAABl0RVh0U29mdHdhcmUAUGFpbnQuTkVUIHYzLjUuNUmK/OAAAAATSURBVBhXY2RgYNgHxGAAYuwDAA78AjwwRoQYAAAAAElFTkSuQmCC) repeat scroll transparent\9; /* ie fallback png background image */
+  z-index:10;
+  color:$black;
+  display: none;
+}
+#loader {
+  position:fixed;
+  top:40%;
+  left:45%;
+  width: 100px;
+  height: 100px;
+  margin: auto;
+  text-align: center;
+  display: none;
+  z-index: 100;
+  border: 16px solid $white;
+  border-radius: 50%;
+  border-top: 16px solid $defaultBlueBtn;
+
+  -webkit-animation: spin 2s linear infinite;
+  animation: spin 2s linear infinite;
+}
+
+@-webkit-keyframes spin {
+  0% { -webkit-transform: rotate(0deg); }
+  100% { -webkit-transform: rotate(360deg); }
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
